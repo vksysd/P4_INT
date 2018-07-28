@@ -1,0 +1,45 @@
+table_set_default ipv4_lpm drop
+table_set_default int_prep int_transit 6
+table_set_default int_inst_0003 int_set_header_0003_i0
+table_set_default int_inst_0407 int_set_header_0407_i0
+set_queue_rate 60
+set_queue_depth 250
+
+
+table_add int_inst_0003 int_set_header_0003_i0 0 =>
+table_add int_inst_0003 int_set_header_0003_i1 1 =>
+table_add int_inst_0003 int_set_header_0003_i2 2 =>
+table_add int_inst_0003 int_set_header_0003_i3 3 =>
+table_add int_inst_0003 int_set_header_0003_i4 4 =>
+table_add int_inst_0003 int_set_header_0003_i5 5 =>
+table_add int_inst_0003 int_set_header_0003_i6 6 =>
+table_add int_inst_0003 int_set_header_0003_i7 7 =>
+table_add int_inst_0003 int_set_header_0003_i8 8 =>
+table_add int_inst_0003 int_set_header_0003_i9 9 =>
+table_add int_inst_0003 int_set_header_0003_i10 10 =>
+table_add int_inst_0003 int_set_header_0003_i11 11 =>
+table_add int_inst_0003 int_set_header_0003_i12 12 =>
+table_add int_inst_0003 int_set_header_0003_i13 13 =>
+table_add int_inst_0003 int_set_header_0003_i14 14 =>
+table_add int_inst_0003 int_set_header_0003_i15 15 =>
+
+table_add int_inst_0407 int_set_header_0407_i0 0 =>
+table_add int_inst_0407 int_set_header_0407_i1 1 =>
+table_add int_inst_0407 int_set_header_0407_i2 2 =>
+table_add int_inst_0407 int_set_header_0407_i3 3 =>
+table_add int_inst_0407 int_set_header_0407_i4 4 =>
+table_add int_inst_0407 int_set_header_0407_i5 5 =>
+table_add int_inst_0407 int_set_header_0407_i6 6 =>
+table_add int_inst_0407 int_set_header_0407_i7 7 =>
+table_add int_inst_0407 int_set_header_0407_i8 8 =>
+table_add int_inst_0407 int_set_header_0407_i9 9 =>
+table_add int_inst_0407 int_set_header_0407_i10 10 =>
+table_add int_inst_0407 int_set_header_0407_i11 11 =>
+table_add int_inst_0407 int_set_header_0407_i12 12 =>
+table_add int_inst_0407 int_set_header_0407_i13 13 =>
+table_add int_inst_0407 int_set_header_0407_i14 14 =>
+table_add int_inst_0407 int_set_header_0407_i15 15 =>
+
+table_add ipv4_lpm ipv4_forward 10.0.1.1/32 => 00:00:00:00:01:01 1
+table_add ipv4_lpm ipv4_forward 10.0.8.2/32 => 00:00:00:00:08:02 2
+table_add ipv4_lpm ipv4_forward 10.0.8.3/32 => 00:00:00:00:08:03 2

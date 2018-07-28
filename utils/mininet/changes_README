@@ -1,0 +1,10 @@
+************Changes done in python files to RUN INT******************
+
+Challange : Burn different p4 program in source, transit and sink no_of_switches
+
+Changes done:
+  1. no_of_switches.py file contains a variable no_of_switches = 0;
+      It is imported in both files p4_mininet.py and multi_switch_mininet.py
+
+  2. In p4_mininet.py changes in Code lines 129-134
+  

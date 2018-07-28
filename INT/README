@@ -1,0 +1,96 @@
+*******************NOTE ****************************8
+some changes are done in utils/mininet folder for INT  which are written in the file changes_README in that folder 
+
+Max MTU = Instruction count * 4 * INT hop Count + 8 (for INT metadata header)
+
+1. What to monitor ?
+
+Each metadata is encoded as a 4B unsigned value.
+
+    1.1 Switch-level Information
+        Switch id
+    1.2 Ingress Information
+        Ingress port id
+        Ingress timestamp
+    1.3 Egress Information
+        Egress port ID
+        Hop latency
+        Egress port TX Link utilization
+    1.4 Buffer Information
+        Queue occupancy
+        Queue congestion status
+
+
+  INT over TCP/UDP
+  introduces a shim header after TCP/UDP header and
+carry INT Headers between the shim header and TCP/UDP payload.
+-------------------------------------------------------------------------------------------------------
+the INT specication requires that an INT switch Considering all these must not fragment packets in order to
+append INT information to the packet.
+------------------------------------------------------------------------------------------------------
+Regardless of whether or not an INT transit switch participates in Path MTU discovery, if it cannot
+insert all requested metadata because doing so will cause the packet length to exceed egress link
+MTU, it must not insert any metadata and set the M bit in the INT header, indicating that egress MTU was exceeded at an INT hop.
+-----------------------------------------------------------------------------------------------------
+When a packet is received with the Remaining Hop Count equal to 0, the device
+must ignore the INT instruction, pushing no new metadata onto the stack, and the
+device must set the E bit.
+-----------------------------------------------------------------------------------------------------
+Int Instrucrtions:
+
+
+      bit0 (MSB): Switch ID
+      bit1: Ingress port ID + egress port ID
+      bit2: Hop latency
+      bit3: Queue ID + Queue occupancy
+      bit4: Ingress timestamp
+      bit5: Egress timestamp
+      bit6: Queue ID + Queue congestion status
+      bit7: Egress port tx utilization
+      The remaining bits are reserved.
+
+-----------------------------------------------------------------------------------------------------
+Summary of the field usage
+
+  The INT Source must set the following fields:
+* INT Source must set all reserved bits to zero.
+* Ver, Rep, C, Instruction Count, Remaining Hop Count, and Instruction Bitmap.
+
+
+  Intermediate devices can set the following fields:
+* C, E, Remaining Hop Count
+-------------------------------------------------------------------------------------------------
+
+
+@metadata @name("standard_metadata")
+struct standard_metadata_t {
+    bit<9>  ingress_port;
+    bit<9>  egress_spec;
+    bit<9>  egress_port;
+    bit<32> clone_spec;
+    bit<32> instance_type;
+    bit<1>  drop;
+    bit<16> recirculate_port;
+    bit<32> packet_length;
+    //
+    // @alias is used to generate the field_alias section of the BMV2 JSON.
+    // Field alias creates a mapping from the metadata name in P4 program to
+    // the behavioral model's internal metadata name. Here we use it to
+    // expose all metadata supported by simple switch to the user through
+    // standard_metadata_t.
+    //
+    // flattening fields that exist in bmv2-ss
+    // queueing metadata
+    @alias("queueing_metadata.enq_timestamp") bit<32> enq_timestamp;
+    @alias("queueing_metadata.enq_qdepth")    bit<19> enq_qdepth;
+    @alias("queueing_metadata.deq_timedelta") bit<32> deq_timedelta;
+    @alias("queueing_metadata.deq_qdepth")    bit<19> deq_qdepth;
+    // intrinsic metadata
+    @alias("intrinsic_metadata.ingress_global_timestamp") bit<48> ingress_global_timestamp;
+    @alias("intrinsic_metadata.lf_field_list") bit<32> lf_field_list;
+    @alias("intrinsic_metadata.mcast_grp")     bit<16> mcast_grp;
+    @alias("intrinsic_metadata.resubmit_flag") bit<32> resubmit_flag;
+    @alias("intrinsic_metadata.egress_rid")    bit<16> egress_rid;
+    /// Indicates that a verify_checksum() method has failed.
+    bit<1>  checksum_error;
+}

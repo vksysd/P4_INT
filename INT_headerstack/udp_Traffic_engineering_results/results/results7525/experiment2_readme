@@ -1,0 +1,118 @@
+elephant - 75% mouse - 25%
+mean = 0.02 
+4 threads t0,t2,t3 = elephant flows
+t1 = mouse flow
+
+sampling rate = 30
+qdepth threshold = 30
+
+
+t0 = 21559
+t1 = 25624(mouse)
+t2 = 21555
+t3 = 21075
+
+total sent = 89813
+time taken = 455.71
+avg pkts sent/ sec = 197.08
+
+packets received =  84933
+
+qdepth s1 = 400
+		  s2 = 400
+		s3 = 120
+		s4 =60
+		s5 =60
+		s6 = 60
+		s7 = 400
+		s8 = 400
+
+----------- Short flow latency results -------------
+total_short_flow_latency= 7639103472
+short_flow_pkt_count= 24229
+avg_short_flow_latency= 315.28760873333607 ms
+-----------Long flow latency results -------------
+total_long_flow_latency= 27297067011
+long_flow_pkt_count= 60704
+avg_long_flow_latency= 449.6749309930153 ms
+
+---------------------------------------------------------------------------------------------------
+baselining
+----------- Short flow latency results -------------
+total_short_flow_latency= 234502708
+short_flow_pkt_count= 24050
+avg_short_flow_latency= 9.75063234927235 ms
+-----------Long flow latency results -------------
+total_long_flow_latency= 577978174
+long_flow_pkt_count= 60312
+avg_long_flow_latency= 9.58313725295132 ms
+
+-----------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------
+
+*************************throughput without INT module*********************************
+pkts received = 55114 / 54699
+time = 455.54 / 455.59 
+
+th =  pkts/sec
+----------------------------------RUN1----------------------------
+----------- Short flow latency results -------------
+total_short_flow_latency= 122709516490
+short_flow_pkt_count= 15727
+avg_short_flow_latency= 7802.47450181217 ms
+-----------Long flow latency results -------------
+total_long_flow_latency= 314188305478
+long_flow_pkt_count= 39387
+avg_long_flow_latency= 7976.954464112525 ms
+
+
+
+--------------------------------RUN2--------------------------------
+----------- Short flow latency results -------------
+total_short_flow_latency= 241660760787
+short_flow_pkt_count= 31102
+avg_short_flow_latency= 7769.942794257604 ms
+-----------Long flow latency results -------------
+total_long_flow_latency= 625863789006
+long_flow_pkt_count= 78711
+avg_long_flow_latency= 7951.414529176354 ms
+
+
+*************************throughput with INT module*********************************
+pkts received = 86489 / 86625
+time = 455.72 / 458.81
+
+th =  pkts/sec
+
+----------------------------------RUN1----------------------------
+----------- Short flow latency results -------------
+total_short_flow_latency= 8075062395
+short_flow_pkt_count= 24723
+avg_short_flow_latency= 326.6214615944667 ms
+-----------Long flow latency results -------------
+total_long_flow_latency= 65839546114
+long_flow_pkt_count= 61766
+avg_long_flow_latency= 1065.9512695334001 ms
+
+
+--------------------------------RUN2--------------------------------
+----------- Short flow latency results -------------
+total_short_flow_latency= 10462971829
+short_flow_pkt_count= 24720
+avg_short_flow_latency= 423.2593781957929 ms
+-----------Long flow latency results -------------
+total_long_flow_latency= 122112294699
+long_flow_pkt_count= 61905
+avg_long_flow_latency= 1972.5756352314029 ms
+
+--------------------------------RUN3--------------------------------
+----------- Short flow latency results -------------
+total_short_flow_latency= 16858095154
+short_flow_pkt_count= 24443
+avg_short_flow_latency= 689.6901016241868 ms
+-----------Long flow latency results -------------
+total_long_flow_latency= 65321284220
+long_flow_pkt_count= 61232
+avg_long_flow_latency= 1066.7834501567806 ms
+
+

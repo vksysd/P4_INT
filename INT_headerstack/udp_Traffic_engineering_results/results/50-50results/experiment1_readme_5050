@@ -1,0 +1,67 @@
+mean = 0.008
+qrates s3 = 150
+ s4,s5,s6 = 120
+others(s1,s2,27,28) = 500
+sampling = 30pkts
+qdepth threshold = 30
+
+sender : 
+t0 = 51141(elephant)
+t1 = 55369(mouse)
+
+total  sent pkts = 106510
+time = 451.49
+
+avg pkts/sec = 235.90
+
+-----------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------
+
+*************************throughput without INT module*********************************
+pkts received = 68063
+time = 454.49
+
+th = 149.75 pkts/sec
+----------------------------------RUN1----------------------------
+----------- Short flow latency results -------------
+total_short_flow_latency= 228991554842
+short_flow_pkt_count= 35376
+avg_short_flow_latency= 6473.076516338761 ms
+-----------Long flow latency results -------------
+total_long_flow_latency= 211699994391
+long_flow_pkt_count= 32687
+avg_long_flow_latency= 6476.580732125921 ms
+
+--------------------------------RUN2--------------------------------
+----------- Short flow latency results -------------
+total_short_flow_latency= 228978318020
+short_flow_pkt_count= 32892
+avg_short_flow_latency= 6961.520066277514 ms
+-----------Long flow latency results -------------
+total_long_flow_latency= 213751795622
+long_flow_pkt_count= 30693
+avg_long_flow_latency= 6964.1871313328775 ms
+
+**********************************with INT module***************************************
+pkts = 101346
+time = 451.24
+th = 224.59445084655616
+----------- Short flow latency results -------------
+total_short_flow_latency= 27351417481
+short_flow_pkt_count= 52532
+avg_short_flow_latency= 520.6620246897129 ms
+-----------Long flow latency results -------------
+total_long_flow_latency= 12989486479
+long_flow_pkt_count= 48814
+avg_long_flow_latency= 266.10166097840784 ms
+
+
+----------- Short flow latency results -------------
+total_short_flow_latency= 21191636337
+short_flow_pkt_count= 53038
+avg_short_flow_latency= 399.5557211244768 ms
+-----------Long flow latency results -------------
+total_long_flow_latency= 11286330298
+long_flow_pkt_count= 48999
+avg_long_flow_latency= 230.3379721626972 ms
+

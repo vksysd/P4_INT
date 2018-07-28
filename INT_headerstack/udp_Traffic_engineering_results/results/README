@@ -1,0 +1,10 @@
+elephant flows diverted from s2 to s4 by modifying next port of the table entry
+
+queue rate on 	s3 = 225
+				s4 = 250
+				s5 = 250
+				s6 = 250
+				s7 = 450
+				s8 = 450
+				s1 = 250
+				s2 = 250 

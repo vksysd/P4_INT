@@ -1,0 +1,14 @@
+Toplology : Linear h1-s1-s2-s3-s4-s5-h2
+Total #packets sent in 300 seconds = 11500
+mean1 = 0.005
+mean2 = 0.05
+#threads = 2
+cpu affinity used = no 
+
+Bottleneck switch s3
+set_queue_rate 48
+set_queue_depth 250
+
+Other Switches 
+set_queue_rate 60
+set_queue_depth 250

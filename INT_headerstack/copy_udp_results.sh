@@ -1,0 +1,5 @@
+cp INT_udp_flows_results_from_h1.txt udp_Traffic_engineering_results/baselining
+cd udp_Traffic_engineering_results/baselining
+rm INT_udp_flows_results.txt
+head -n 30 INT_udp_flows_results_from_h1.txt >> INT_udp_flows_results.txt
+

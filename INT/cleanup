@@ -1,0 +1,4 @@
+sudo rm -rf build/
+sudo mn -c
+cp INT_udp_results.txt ./results/
+rm INT_udp_results.txt

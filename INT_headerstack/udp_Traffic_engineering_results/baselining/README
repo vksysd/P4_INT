@@ -1,0 +1,15 @@
+Total packets sent = 104785
+total_exp_time = 470.71
+avg packets/ sec = 222.61
+
+on all switches:
+
+set_queue_rate 250
+set_queue_depth 500
+
+elecphant_flow_time = 10
+mouse_flow_time = 0.1
+
+mean = 0.008
+delay = np.random.normal(mean, 0.1*mean)
+sleep(delay)
