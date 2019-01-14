@@ -38,7 +38,8 @@ control process_int_sink (inout headers hdr,inout metadata meta,inout standard_m
     action int_sink() {
         // restore length fields of IPv4 header and UDP header
         hdr.ipv4.totalLen = hdr.ipv4.totalLen - (bit<16>)((hdr.intl4_shim.len - (bit<8>)hdr.int_header.ins_cnt) << 2);
-        hdr.ipv4.totalLen = hdr.ipv4.totalLen - 12;                                                                     // since we are not collecting data of int sink it is also a fix for TCP ack problem
+        hdr.ipv4.totalLen = hdr.ipv4.totalLen - 12;                                                                     
+        // since we are not collecting data of int sink it is also a fix for TCP ack problem
         hdr.udp.len = hdr.udp.len - (bit<16>)((hdr.intl4_shim.len - (bit<8>)hdr.int_header.ins_cnt) << 2);
         hdr.udp.len = hdr.udp.len -12;
         // remove all the INT information from the packet

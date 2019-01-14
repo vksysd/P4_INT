@@ -1,0 +1,2 @@
+1. Run the send script on the source host 'h1' : send_udp.py
+2. Run the receive script at the sink host 'h8' : receive_udp.py
