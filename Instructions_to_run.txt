@@ -1,0 +1,17 @@
+#install p4tools using this script
+https://raw.githubusercontent.com/opennetworkinglab/onos/master/tools/dev/p4vm/install-p4-tools.sh
+
+use wget to download this script and go to home folder and then run it ./install-p4-tools.sh
+
+#install scapy and pip3 dependency
+sudo apt-get install python3-pip mininet xterm python3-tk wireshark
+pip3 install scapy matplotlib numpy  pandas scipy
+
+#after doing all this go to INT_headerstack and ./run.sh
+
+this will bring up mininet 
+now on mininet cli open xterm for h1 and h3 using xterm h1 and xterm h3
+
+now in h3 : got to udp_scripts and run python3 server.py 10.0.8.3
+now in h1 : got to udp_scripts and run python3 send_udp_flows.py 10.0.8.3
+

@@ -9,5 +9,4 @@ Here S3,S4,S5,S6 are bottleneck switches and the numbers on the each ports is th
 - To install mininet please follow the instructions from here : https://github.com/mininet/mininet/blob/cf6da391fa4a9271071dff59b41c9fe4e74277dd/INSTALL#L47
 - To install p4-16 compiler please foolow this link : https://github.com/p4lang/p4c
 - How to run program
-  cd INT_headerstack
-  ./run.sh to run the mininet and bring up program_switches
+  Follow instructions from the file Instructions_to_run.txt
